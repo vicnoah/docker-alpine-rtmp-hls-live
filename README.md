@@ -5,7 +5,7 @@
 ####例子：docker build -t alpine-rtmp:latest .
 ####可以在构建容器镜像前更改nginx的配置文件，后面的一些命令会改变，如果你懂可以修改。
 ####表示使用当前路径的Dockerfile文件生成镜像
-###2.运行容器docker run -ti --restart --name rtmp -p 80:80 -p 1935:1935 -v /mydata/hls:/var/tmp/hls -d alpine-rtmp
+###2.运行容器dodocker run -ti --name rtmp -p 80:80 -p 1935:1935 -v /mydata/hls:/var/live/hls -v /mydata/live:/var/www/live -d wuwengang/docker-alpine-rtmp-hls-live
 ####运行容器时请务必使用-v 参数将容器内的hls切片目录挂载到容器外部
 ###3.默认推流地址
 ####rtmp://主机ip/live/直播房间号(可随便填写，不能冲突)
