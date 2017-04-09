@@ -2,7 +2,8 @@ FROM alpine:latest
 MAINTAINER Ryan_Newman <15244909057.ww@gmail.com>
 
 # use china souce
- copy ./apk/repositories /etc/apk/repositories
+ADD ./apk/repositories /etc/apk/repositories
+ADD ./static /var/www/static
 
 # update software
 
@@ -11,7 +12,7 @@ RUN apk upgrade
 
 # install nginx
 
-RUN apk add nginx vim
+RUN apk add nginx
 
 # install rtmp plugin
 
@@ -36,9 +37,9 @@ RUN apk add ffmpeg faac
 
 # create needs folder and permission
 
-RUN mkdir /var/tmp/hls
-RUN mkdir /var/log/supervisor
-RUN mkdir /run/nginx
+RUN mkdir -p /var/live/hls
+RUN mkdir -p /var/log/supervisor
+RUN mkdir -p /run/nginx
 
 # run container
 
